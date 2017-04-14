@@ -13,13 +13,18 @@ describe('Ast.Tag', () => {
     });
     
     it('should not parse regular objects', () => {
-        expect(() => Tag.parse()).to.throw;
-        expect(() => Tag.parse({type: 'Type'})).to.throw;
+        expect(() => Tag.parse()).to.throw(TypeError);
+        expect(() => Tag.parse({type: 'Type'})).to.throw(TypeError);
     });
     
     it('should parse Gherkin Ast Tag type to Tag', () => {
         const tag = Tag.parse({type: 'Tag', name: 'tagName'});
         expect(tag).to.be.instanceOf(Tag);
         expect(tag.name).to.equal('tagName');
+    });
+
+    it('should have proper string representation', () => {
+        const tag = new Tag('tagName');
+        expect(tag.toString()).to.equal('tagName');
     });
 });

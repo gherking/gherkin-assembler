@@ -5,8 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha test/**/*.spec.js",
-    "coverage": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha -v --root ./lib --report lcovonly -- test/**/*.spec.js",
-    "travis": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha -v --root ./lib --report lcovonly -- test/**/*.spec.js -R spec && cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "coverage": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha --root ./lib -- test/**/*.spec.js",
+    "travis": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha --root ./lib --report lcovonly -- test/**/*.spec.js -R spec && cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
