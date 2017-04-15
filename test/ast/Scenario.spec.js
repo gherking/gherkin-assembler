@@ -13,7 +13,7 @@ const expect = require('chai').expect;
 
 describe('Ast.Scenario', () => {
     it('should represent an Ast Scenario instance', () => {
-        const scenario = new Scenario('Scenario', 'this is a scenario', 'this  is a good scenario\n  a');
+        const scenario = new Scenario('Scenario', 'this is a   scenario', 'this  is a good scenario\n  a');
         expect(scenario).to.be.instanceOf(Scenario);
         expect(scenario.keyword).to.equal('Scenario');
         expect(scenario.name).to.equal('this is a scenario');
