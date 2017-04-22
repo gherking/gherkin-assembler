@@ -5,8 +5,8 @@ Scenario: this is a scenario
 
   Given this is a given step
   When this is a when step with docString
-    """
-    Hello
-    World
-    """
+  """
+  Hello
+  World
+  """
   But this should not be a when step

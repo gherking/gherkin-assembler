@@ -41,6 +41,6 @@ describe('Ast.Step', () => {
     it('should have proper string representation', () => {
         const step = new Step('When ', 'this is a when step');
         step.argument = new DocString('Hello\nWorld');
-        expect(step.toString()).to.equal('When this is a when step\n  """\n  Hello\n  World\n  """');
+        expect(step.toString()).to.equal('When this is a when step\n"""\nHello\nWorld\n"""');
     });
 });
