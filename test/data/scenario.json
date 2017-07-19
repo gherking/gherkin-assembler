@@ -14,5 +14,24 @@
         }
     ],
     "steps": [
+        {
+            "type": "Step",
+            "keyword": "Given ",
+            "text": "this is a given step"
+        },
+        {
+            "type": "Step",
+            "keyword": "When ",
+            "text": "this is a when step with docString",
+            "argument": {
+                "type": "DocString",
+                "content": "Hello\nWorld"
+            }
+        },
+        {
+            "type": "Step",
+            "keyword": "But ",
+            "text": "this should not be a when step"
+        }
     ]
 }
