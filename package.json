@@ -28,12 +28,12 @@
   },
   "homepage": "https://github.com/szikszail/gherkin-assembler#readme",
   "devDependencies": {
-    "chai": "^3.5.0",
-    "coveralls": "^2.11.9",
-    "istanbul": "^0.4.3",
-    "mocha": "^2.4.5"
+    "chai": "^4.1.0",
+    "coveralls": "^2.13.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2"
   },
   "dependencies": {
-    "gherkin": "^4.1.1"
+    "gherkin": "^4.1.3"
   }
 }
