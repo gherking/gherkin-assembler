@@ -1,6 +1,6 @@
 @tag1 @tag2
 Feature: Hello world
-  As a smth
+  As a someone
   I want to do smth
   So that I am smth
 
