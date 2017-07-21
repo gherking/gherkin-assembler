@@ -6,7 +6,7 @@ const Scenario = require(path.resolve('lib/ast/Scenario.js'));
 const Step = require(path.resolve('lib/ast/Step.js'));
 const Tag = require(path.resolve('lib/ast/Tag.js'));
 
-const scenarioAst = require('../data/scenario.json');
+const scenarioAst = require('../../data/scenario.json');
 const scenarioFeature = fs.readFileSync(path.resolve('test/data/scenario.txt'), 'utf8');
 
 const expect = require('chai').expect;

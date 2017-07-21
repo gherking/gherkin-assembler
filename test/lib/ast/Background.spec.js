@@ -5,7 +5,7 @@ const fs = require('fs');
 const Background = require(path.resolve('lib/ast/Background.js'));
 const Step = require(path.resolve('lib/ast/Step.js'));
 
-const backgroundAst = require('../data/background.json');
+const backgroundAst = require('../../data/background.json');
 const backgroundFeature = fs.readFileSync(path.resolve('test/data/background.txt'), 'utf8');
 
 const expect = require('chai').expect;
