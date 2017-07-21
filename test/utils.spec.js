@@ -15,7 +15,7 @@ describe('Utils', () => {
         });
 
         it('should handle multi-line texts too', () => {
-            expect(utils.normalize('  some\n  text  again  ')).to.equal('some\r\ntext again');
+            expect(utils.normalize('  some\n  text  again  ')).to.equal('some\ntext again');
         });
 
         it('should handle if not argument is passed', () => {
@@ -29,7 +29,7 @@ describe('Utils', () => {
         });
 
         it('should indent multi-line text', () => {
-            expect(utils.indent('text to indent\nagain', 2)).to.equal('    text to indent\r\n    again');
+            expect(utils.indent('text to indent\nagain', 2)).to.equal('    text to indent\n    again');
         });
 
         it('should indent with one level by default', () => {
@@ -92,12 +92,12 @@ describe('Utils', () => {
 
             it('should handle multiple lines too', () => {
                 lines.add('new line\nother line');
-                expect(lines.toString()).to.equal('new line\r\nother line');
+                expect(lines.toString()).to.equal('new line\nother line');
             });
 
             it('should handle empty lines', () => {
                 lines.add('new line', null, 'other line', undefined, 'another line');
-                expect(lines.toString()).to.equal('new line\r\n\r\nother line\r\n\r\nanother line');
+                expect(lines.toString()).to.equal('new line\n\nother line\n\nanother line');
             });
         });
     });

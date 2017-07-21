@@ -12,11 +12,11 @@ const expect = require('chai').expect;
 
 describe('Ast.Background', () => {
     it('should represent an Ast Background instance', () => {
-        const background = new Background('Background', 'this is a  background', 'this  is a good background\r\n  a');
+        const background = new Background('Background', 'this is a  background', 'this  is a good background\n  a');
         expect(background).to.be.instanceOf(Background);
         expect(background.keyword).to.equal('Background');
         expect(background.name).to.equal('this is a background');
-        expect(background.description).to.equal('this is a good background\r\na');
+        expect(background.description).to.equal('this is a good background\na');
         expect(background.steps).to.eql([]);
     });
     

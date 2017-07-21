@@ -2,7 +2,7 @@
     "type": "Scenario",
     "keyword": "Scenario",
     "name": "this is a scenario",
-    "description": "this  is a really good\n  scenario",
+    "description": "this  is a good\n  scenario",
     "tags": [
         {
             "type": "Tag",

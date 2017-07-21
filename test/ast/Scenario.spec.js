@@ -17,7 +17,7 @@ describe('Ast.Scenario', () => {
         expect(scenario).to.be.instanceOf(Scenario);
         expect(scenario.keyword).to.equal('Scenario');
         expect(scenario.name).to.equal('this is a scenario');
-        expect(scenario.description).to.equal('this is a good scenario\r\na');
+        expect(scenario.description).to.equal('this is a good scenario\na');
         expect(scenario.tags).to.eql([]);
         expect(scenario.steps).to.eql([]);
     });
