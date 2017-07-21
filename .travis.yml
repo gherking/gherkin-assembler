@@ -5,7 +5,7 @@ node_js:
 git:
   depth: 3
 script:
-- npm test && npm run-script travis
+- npm run-script travis
 notifications:
   email: false
 deploy:
