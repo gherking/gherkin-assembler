@@ -25,6 +25,6 @@ describe('Ast.DocString', () => {
 
     it('should have proper string representation', () => {
         const docString = new DocString('Hello\nWorld');
-        expect(docString.toString()).to.equal('"""\nHello\nWorld\n"""');
+        expect(docString.toString()).to.equal('"""\r\nHello\r\nWorld\r\n"""');
     });
 });
