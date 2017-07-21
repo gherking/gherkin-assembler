@@ -3,6 +3,8 @@ node_js:
 - 6
 - 8
 script:
+- npm test
+script:
 - npm run-script travis
 notifications:
   email: false
