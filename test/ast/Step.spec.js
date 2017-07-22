@@ -3,6 +3,9 @@
 const path = require('path');
 const Step = require(path.resolve('lib/ast/Step.js'));
 const DocString = require(path.resolve('lib/ast/DocString.js'));
+const DataTable = require(path.resolve('lib/ast/DataTable.js'));
+const TableRow = require(path.resolve('lib/ast/TableRow.js'));
+const TableCell = require(path.resolve('lib/ast/TableCell.js'));
 
 const expect = require('chai').expect;
 
@@ -38,9 +41,25 @@ describe('Ast.Step', () => {
         expect(step.argument).to.be.instanceOf(DocString);
     });
 
-    it('should have proper string representation', () => {
+    it('should have proper string representation in case of DocString argument', () => {
         const step = new Step('When ', 'this is a when step');
         step.argument = new DocString('Hello\nWorld');
-        expect(step.toString()).to.equal('When this is a when step\n"""\nHello\nWorld\n"""');
+        expect(step.toString()).to.equal('When this is a when step\n  """\n  Hello\n  World\n  """');
+    });
+
+    it('should have proper string representation in case of DataTable argument', () => {
+        const step = new Step('When ', 'this is a when step');
+        step.argument = new DataTable([
+            new TableRow([
+                new TableCell('A1'),
+                new TableCell('B1')
+            ]),
+            new TableRow([
+                new TableCell('A2'),
+                new TableCell('B2')
+            ])
+        ]);
+
+        expect(step.toString()).to.equal('When this is a when step\n  | A1 | B1 |\n  | A2 | B2 |');
     });
 });
