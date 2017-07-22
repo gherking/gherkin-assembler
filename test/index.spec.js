@@ -8,6 +8,8 @@ const utils = require(path.resolve('lib/utils.js'));
 
 const featureAst = api.Ast.GherkinDocument.parse(require('./data/base.ast.json'));
 const featureFile = fs.readFileSync(path.resolve('test/data/base.feature'), 'utf8');
+const multiLineFeatureFile = fs.readFileSync(path.resolve('test/data/base-multiline.feature'), 'utf8');
+const compactFeatureFile = fs.readFileSync(path.resolve('test/data/base-compact.feature'), 'utf8');
 
 const expect = require('chai').expect;
 
@@ -24,16 +26,13 @@ describe('API', () => {
         it('should format array of documents', () => {
             expect(api.format([featureAst, featureAst])).to.eql([featureFile, featureFile]);
         });
-    });
 
-    describe('.setCrLf()', () => {
-        after(() => api.setCrLf(false));
-
-        it('should change line end to CRLF and back to LF', () => {
-            api.setCrLf(true);
-            expect(utils.LINE_BREAK).to.contain('\r');
-            api.setCrLf(false);
-            expect(utils.LINE_BREAK).to.not.contain('\r');
+        it('should put each tag in new line, if set', () => {
+            expect(api.format(featureAst, {oneTagPerLine: true})).to.equal(multiLineFeatureFile);
         });
-    })
+
+        it('should remove empty lines, if set', () => {
+            expect(api.format(featureAst, {compact: true})).to.equal(compactFeatureFile);
+        });
+    });
 });
