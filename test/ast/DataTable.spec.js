@@ -41,6 +41,7 @@ describe('Ast.DataTable', () => {
                 new TableCell('B2')
             ])
         ]);
+        console.log(table.toString());
         expect(table.toString()).to.equal('| A1 | B1 |\n| A2 | B2 |');
     });
 });
