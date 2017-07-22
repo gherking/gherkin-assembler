@@ -32,6 +32,10 @@ describe('Utils', () => {
             expect(utils.indent('text to indent\nagain', 2)).to.equal('    text to indent\n    again');
         });
 
+        it('should not indent empty lines', () => {
+            expect(utils.indent('text to indent\n\nagain')).to.equal('  text to indent\n\n  again');
+        });
+
         it('should indent with one level by default', () => {
             expect(utils.indent('text to indent')).to.equal('  text to indent');
         });

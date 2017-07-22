@@ -27,12 +27,12 @@ Feature: Hello world
       | val1 | val2 |
       | val3 | val4 |
     And this is a when step with doc string
-    """
-    Hello world
-    Hello World
-    hello World
-    hello world
-    """
+      """
+      Hello world
+      Hello World
+      hello World
+      hello world
+      """
     Then it should be a then step
     And it should be a then step too
 

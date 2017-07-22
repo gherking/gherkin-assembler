@@ -120,6 +120,7 @@
         },
         "keyword": "Scenario",
         "name": "Name of scenario",
+        "description": "Description of the scenario",
         "steps": [
           {
             "type": "Step",

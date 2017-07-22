@@ -34,14 +34,20 @@ describe('Ast.ScenarioOutline', () => {
         expect(scenario).to.be.instanceOf(ScenarioOutline);
         expect(scenario.keyword).to.equal(scenarioAst.keyword);
         expect(scenario.name).to.equal(scenarioAst.name);
-        expect(scenario.tags).to.have.lengthOf(2);
+        expect(scenario.tags).to.have.lengthOf(scenarioAst.tags.length);
         scenario.tags.forEach((tag, i) => {
             expect(tag).to.be.instanceOf(Tag);
             expect(tag.name).to.equal(scenarioAst.tags[i].name);
         });
+        expect(scenario.steps).to.have.lengthOf(scenarioAst.steps.length);
         scenario.steps.forEach((step, i) => {
             expect(step).to.be.instanceOf(Step);
             expect(step.text).to.equal(scenarioAst.steps[i].text);
+        });
+        expect(scenario.examples).to.have.lengthOf(scenarioAst.examples.length);
+        scenario.examples.forEach((examples, i) => {
+            expect(examples).to.be.instanceOf(Examples);
+            expect(examples.header.cells[0].value).to.equal(scenarioAst.examples[i].tableHeader.cells[0].value);
         });
     });
 

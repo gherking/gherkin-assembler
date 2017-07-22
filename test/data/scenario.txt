@@ -1,7 +1,7 @@
 @tag1 @tag2
 Scenario: this is a scenario
-  this is a good
-  scenario
+this is a good
+scenario
 
   Given this is a given step
   When this is a when step with docString

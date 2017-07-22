@@ -32,10 +32,15 @@ describe('Ast.Scenario', () => {
         expect(scenario).to.be.instanceOf(Scenario);
         expect(scenario.keyword).to.equal(scenarioAst.keyword);
         expect(scenario.name).to.equal(scenarioAst.name);
-        expect(scenario.tags).to.have.lengthOf(2);
+        expect(scenario.tags).to.have.lengthOf(scenarioAst.tags.length);
         scenario.tags.forEach((tag, i) => {
             expect(tag).to.be.instanceOf(Tag);
             expect(tag.name).to.equal(scenarioAst.tags[i].name);
+        });
+        expect(scenario.steps).to.have.lengthOf(scenarioAst.steps.length);
+        scenario.steps.forEach((step, i) => {
+            expect(step).to.be.instanceOf(Step);
+            expect(step.text).to.equal(scenarioAst.steps[i].text);
         });
     });
 
