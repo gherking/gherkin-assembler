@@ -8,21 +8,21 @@ It allows to convert Gherkin AST to feature file string.
 
 ### `objectToAST(document)`
 
-The `objectToAST` API method converts the given Gherkin object into `Ast.GherkinDocument` object.
+The `objectToAST` API method converts the given Gherkin object into `GherkinDocument` object.
 
 A complete sample Gherkin object can be found here: [Complete Gherkin object](/test/data/base.ast.json).
 
 **Params:**
   * `{Object} documet` - a single Gherkin object
   
-**Returns:** `{Ast.GherkinDocument}`
+**Returns:** `{GherkinDocument}`
 
 ### `format(document, options)`
 
 The `format` API method formats the given Gherkin Document(s) to string (which could be written out to feature file(s)).
 
 **Params:**
-  * `{Ast.GherkinDocument|Array<Ast.GherkinDocument>} document` - a single or multiple Gherkin Documents given in it's AST model.
+  * `{GherkinDocument|Array<GherkinDocument>} document` - a single or multiple Gherkin Documents given in it's AST model.
   * `{AssemblerConfig} options` - options to set attributes of formatting.
   
 **Returns:** `{string|Array<string>}`
@@ -54,8 +54,8 @@ The API provides types to be able to handle different parts of Gherkin feature f
 
 ```javascript
 'use strict';
-const {Ast} = require('gherkin-assemble');
-console.log(Object.keys(Ast));
+const {AST} = require('gherkin-assemble');
+console.log(Object.keys(AST));
 // Background,...,Feature,GherkinDocument,...,Tag
 ```
 

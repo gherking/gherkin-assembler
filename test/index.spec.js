@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const api = require(path.resolve('lib/index.js'));
 
-const featureAst = api.Ast.GherkinDocument.parse(require('./data/base.ast.json'));
+const featureAst = api.AST.GherkinDocument.parse(require('./data/base.ast.json'));
 const featureFile = fs.readFileSync(path.resolve('test/data/base.feature'), 'utf8');
 const multiLineFeatureFile = fs.readFileSync(path.resolve('test/data/base-multiline.feature'), 'utf8');
 const compactFeatureFile = fs.readFileSync(path.resolve('test/data/base-compact.feature'), 'utf8');
@@ -37,7 +37,7 @@ describe('API', () => {
 
     describe('.objectToAST()', () => {
         it('should convert simple object to GherkinDocument', () => {
-            expect(api.objectToAST({type: 'GherkinDocument'})).to.be.instanceOf(api.Ast.GherkinDocument);
+            expect(api.objectToAST({type: 'GherkinDocument'})).to.be.instanceOf(api.AST.GherkinDocument);
         });
     });
 });
