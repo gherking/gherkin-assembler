@@ -96,7 +96,7 @@ Feature: Hello world
 #### Methods
 
  * `new Feature(keyword, name, description, language) : Feature` - Creates a new `Feature` object, with the given values.
- * `<Feature>.toString({AssemblerConfig}) : string` - Converts the feature to string, i.e. formats it.
+ * `{Feature}.toString({AssemblerConfig}) : string` - Converts the feature to string, i.e. formats it.
  * `Feature.parse({Object} object) : Feature` - Parses the given [Feature object](/test/data/base.ast.json#4) to a `Feature`.
 
 
