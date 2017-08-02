@@ -63,13 +63,15 @@ console.log(Object.keys(Ast));
 
 Model of a complete Gherkin document, i.e. feature file.
 
-**Fields:**
+#### Fields
+
   * `{Feature} feature` - the feature which this document contains
   
-**Methods:**
-  * `new GherkinDocument() : GherkinDocument` - creates a new instance.
-  * `<GherkinDocument>.toString({AssemblerConfig} [options]) : string` - converts the document to string, i.e. formats it.
-  * `GherkinDocumnet.parse({Object} object) : GherkinDocument` - parses the given [GherkinDocument object](/test/data/base.ast.json#2) to a `GherkinDocument`.
+#### Methods
+
+  * `new GherkinDocument() : GherkinDocument` - Creates a new instance.
+  * `{GherkinDocument}.toString({AssemblerConfig} [options]) : string` - Converts the document to string, i.e. formats it.
+  * `GherkinDocumnet.parse({Object} object) : GherkinDocument` - Parses the given [GherkinDocument object](/test/data/base.ast.json#2) to a `GherkinDocument`.
 
 ### `Feature`
 
@@ -84,22 +86,18 @@ Feature: Hello world
 
 #### Fields
 
-| Name | Type | Description |
-|:-----|:-----|:------------|
-| `keyword` | `string` | The keyword of the feature, e.g. `"Feature"` |
-| `name` | `string` | The name of the feature, e.g. `"Hello world"` |
-| `description` | `string` | The description of the feature, e.g. `"As a smo\nI want to do smth\nSo that I am smth"` |
-| `language` | `string` | One of the supported [Gherkin language](https://github.com/cucumber/cucumber/wiki/Spoken-languages), default: `"en"` |
-| `tags` | `Array<Tag>` | Tags of the feature. |
-| `scenarios` | `Array<Background|Scenario|ScenarioOutline>` | The elements/scenarios of the feature |
+ * `{string} keyword` - the keyword of the feature, e.g. `"Feature"`.
+ * `{string} name` - the name of the feature, e.g. `"Hello world"`.
+ * `{string} description` - the description of the feature, e.g. `"As a smo\nI want to do smth\nSo that I am smth"`.
+ * `{string} language` - one of the supported [Gherkin language](https://github.com/cucumber/cucumber/wiki/Spoken-languages), default: `"en"`.
+ * `{Array<Tag>} tags` - tags of the feature.
+ * `{Array<Background|Scenario|ScenarioOutline>} scenarios` - the elements/scenarios of the feature.
 
 #### Methods
 
-| Method | Description |
-|:-------|:------------|
-| `new Feature(keyword, name, description, language) : Feature` | Creates a new `Feature` object, with the given values. |
-| `<Feature>.toString({AssemblerConfig}) : string` | Converts the feature to string, i.e. formats it. |
-| `Feature.parse({Object} object) : Feature` | Parses the given [Feature object](/test/data/base.ast.json#4) to a `Feature`. |
+ * `new Feature(keyword, name, description, language) : Feature` - Creates a new `Feature` object, with the given values.
+ * `<Feature>.toString({AssemblerConfig}) : string` - Converts the feature to string, i.e. formats it.
+ * `Feature.parse({Object} object) : Feature` - Parses the given [Feature object](/test/data/base.ast.json#4) to a `Feature`.
 
 
 ### `Background`
