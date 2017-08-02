@@ -4,7 +4,7 @@
 
 It allows to convert Gherkin AST to feature file string.
 
-## Usage
+## API
 
 ### `objectToAST(document)`
 
@@ -48,53 +48,97 @@ By passing an `AssemblerConfig` object to format method (or other Ast type metho
 | `lineBreak` | The line break character(s). | `\n`, i.e. it uses Unix line break, to set Windows style, set `\r\n` |
 | `indentation` | The indentation character(s). | `'  '`, i.e. it uses two space character to add indentation where it's appropriate | 
 
-## AST
+### AST
 
-### `GherkinDocument`
+The API provides types to be able to handle different parts of Gherkin feature files.
+
+```javascript
+'use strict';
+const {Ast} = require('gherkin-assemble');
+console.log(Object.keys(Ast));
+// Background,...,Feature,GherkinDocument,...,Tag
+```
+
+#### `GherkinDocument`
+
+Model of a complete Gherkin document, i.e. feature file.
+
+**Fields:**
+  * `{Feature} feature` - the feature which this document contains
+  
+**Methods:**
+  * `new GherkinDocument() : GherkinDocument` - creates a new instance.
+  * `<GherkinDocument>.toString({AssemblerConfig} [options]) : string` - converts the document to string, i.e. formats it.
+  * `GherkinDocumnet.parse({Object} object) : GherkinDocument` - parses the given [GherkinDocument object](/test/data/base.ast.json#2) to a `GherkinDocument`.
+
+#### `Feature`
+
+Model of a Gherkin feature.
+
+```gherkin
+Feature: Hello world
+  As a smo
+  I want to do smth
+  So that I am smth
+```
+
+##### Fields
+
+| Name | Type | Description |
+|:-----|:-----|:------------|
+| `keyword` | `string` | The keyword of the feature, e.g. `"Feature"` |
+| `name` | `string` | The name of the feature, e.g. `"Hello world"` |
+| `description` | `string` | The description of the feature, e.g. `"As a smo\nI want to do smth\nSo that I am smth"` |
+| `language` | `string` | One of the supported [Gherkin language](https://github.com/cucumber/cucumber/wiki/Spoken-languages), default: `"en"` |
+| `tags` | `Array<Tag>` | Tags of the feature. |
+| `scenarios` | `Array<Background|Scenario|ScenarioOutline>` | The elements/scenarios of the feature |
+
+##### Methods
+
+| Method | Description |
+|:-------|:------------|
+| `new Feature(keyword, name, description, language) : Feature` | Creates a new `Feature` object, with the given values. |
+| `<Feature>.toString({AssemblerConfig}) : string` | Converts the feature to string, i.e. formats it. |
+| `Feature.parse({Object} object) : Feature` | Parses the given [Feature object](/test/data/base.ast.json#4) to a `Feature`. |
+
+
+#### `Background`
 
 _TBD_
 
-### `Feature`
+#### `Scenario`
 
 _TBD_
 
-### `Background`
+#### `ScenarioOutline`
 
 _TBD_
 
-### `Scenario`
+#### `Examples`
 
 _TBD_
 
-### `ScenarioOutline`
+#### `Step`
 
 _TBD_
 
-### `Examples`
+#### `Tag`
 
 _TBD_
 
-### `Step`
+#### `DocString`
 
 _TBD_
 
-### `Tag`
+#### `DataTable`
 
 _TBD_
 
-### `DocString`
+#### `TableRow`
 
 _TBD_
 
-### `DataTable`
-
-_TBD_
-
-### `TableRow`
-
-_TBD_
-
-### `TableCell`
+#### `TableCell`
 
 _TBD_
 
