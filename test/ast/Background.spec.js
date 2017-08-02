@@ -3,7 +3,6 @@
 const path = require('path');
 const fs = require('fs');
 const Background = require(path.resolve('lib/ast/Background.js'));
-const Step = require(path.resolve('lib/ast/Step.js'));
 
 const backgroundAst = require('../data/background.json');
 const backgroundFeature = fs.readFileSync(path.resolve('test/data/background.txt'), 'utf8');
@@ -35,5 +34,12 @@ describe('Ast.Background', () => {
     it('should have proper string representation', () => {
         const background = Background.parse(backgroundAst);
         expect(background.toString()).to.equal(backgroundFeature);
+    });
+
+    it('should have method to clone it', () => {
+        const background = Background.parse(backgroundAst);
+        const cloned = background.clone();
+        expect(background).to.not.equal(cloned);
+        expect(background).to.eql(cloned);
     });
 });

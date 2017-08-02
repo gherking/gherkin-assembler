@@ -25,28 +25,38 @@ describe('Ast.TableRow', () => {
     });
 
     it('should have proper array representation in case of empty row', () => {
-        const cell = new TableRow();
-        expect(cell.toArray()).to.eql([]);
+        const row = new TableRow();
+        expect(row.toArray()).to.eql([]);
     });
 
     it('should have proper array representation in case of non-empty row', () => {
-        const cell = new TableRow([
+        const row = new TableRow([
             new TableCell('A1'),
             new TableCell('B1')
         ]);
-        expect(cell.toArray()).to.eql(['A1', 'B1']);
+        expect(row.toArray()).to.eql(['A1', 'B1']);
     });
 
     it('should have proper string representation in case of empty row', () => {
-        const cell = new TableRow();
-        expect(cell.toString()).to.equal('');
+        const row = new TableRow();
+        expect(row.toString()).to.equal('');
     });
 
     it('should have proper string representation in case of non-empty row', () => {
-        const cell = new TableRow([
+        const row = new TableRow([
             new TableCell('A1'),
             new TableCell('B1')
         ]);
-        expect(cell.toString()).to.equal('| A1 | B1 |');
+        expect(row.toString()).to.equal('| A1 | B1 |');
+    });
+
+    it('should have method to clone it', () => {
+        const row = new TableRow([
+            new TableCell('A1'),
+            new TableCell('B1')
+        ]);
+        const cloned = row.clone();
+        expect(row).to.not.equal(cloned);
+        expect(row).to.eql(cloned);
     });
 });

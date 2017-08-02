@@ -43,4 +43,20 @@ describe('Ast.DataTable', () => {
         ]);
         expect(table.toString()).to.equal('| A1 | B1 |\n| A2 | B2 |');
     });
+
+    it('should have method to clone it', () => {
+        const table = new DataTable([
+            new TableRow([
+                new TableCell('A1'),
+                new TableCell('B1')
+            ]),
+            new TableRow([
+                new TableCell('A2'),
+                new TableCell('B2')
+            ])
+        ]);
+        const cloned = table.clone();
+        expect(table).to.not.equal(cloned);
+        expect(table).to.eql(cloned);
+    });
 });

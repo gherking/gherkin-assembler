@@ -4,10 +4,6 @@ const path = require('path');
 const fs = require('fs');
 
 const Feature = require(path.resolve('lib/ast/Feature.js'));
-const Scenario = require(path.resolve('lib/ast/Scenario.js'));
-const ScenarioOutline = require(path.resolve('lib/ast/ScenarioOutline.js'));
-const Background = require(path.resolve('lib/ast/Background.js'));
-const Step = require(path.resolve('lib/ast/Step.js'));
 const Tag = require(path.resolve('lib/ast/Tag.js'));
 
 const featureAst = require('../data/base.ast.json').feature;
@@ -24,7 +20,7 @@ describe('Ast.Feature', () => {
         expect(feature.name).to.equal('this is a feature');
         expect(feature.description).to.equal('this is a good feature\na');
         expect(feature.tags).to.eql([]);
-        expect(feature.scenarios).to.eql([]);
+        expect(feature.elements).to.eql([]);
     });
     
     it('should not parse regular objects', () => {
@@ -42,8 +38,8 @@ describe('Ast.Feature', () => {
             expect(tag).to.be.instanceOf(Tag);
             expect(tag.name).to.equal(featureAst.tags[i].name);
         });
-        expect(feature.scenarios).to.have.lengthOf(featureAst.children.length);
-        feature.scenarios.forEach((scenario, i) => {
+        expect(feature.elements).to.have.lengthOf(featureAst.children.length);
+        feature.elements.forEach((scenario, i) => {
             expect(scenario.constructor.name).to.equal(featureAst.children[i].type);
             expect(scenario.name).to.equal(featureAst.children[i].name);
         });
@@ -60,5 +56,12 @@ describe('Ast.Feature', () => {
     it('should have proper string representation', () => {
         const feature = Feature.parse(featureAst);
         expect(feature.toString()).to.equal(featureFile);
+    });
+
+    it('should have method to clone it', () => {
+        const feature = Feature.parse(featureAst);
+        const cloned = feature.clone();
+        expect(feature).to.not.equal(cloned);
+        expect(feature).to.eql(cloned);
     });
 });

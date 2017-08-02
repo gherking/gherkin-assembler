@@ -48,4 +48,11 @@ describe('Ast.Scenario', () => {
         const scenario = Scenario.parse(scenarioAst);
         expect(scenario.toString()).to.equal(scenarioFeature);
     });
+
+    it('should have method to clone it', () => {
+        const scenario = Scenario.parse(scenarioAst);
+        const cloned = scenario.clone();
+        expect(scenario).to.not.equal(cloned);
+        expect(scenario).to.eql(cloned);
+    });
 });

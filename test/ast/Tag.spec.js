@@ -27,4 +27,11 @@ describe('Ast.Tag', () => {
         const tag = new Tag('tagName');
         expect(tag.toString()).to.equal('tagName');
     });
+
+    it('should have method to clone it', () => {
+        const tag = new Tag('tagName');
+        const cloned = tag.clone();
+        expect(tag).to.not.equal(cloned);
+        expect(tag).to.eql(cloned);
+    });
 });

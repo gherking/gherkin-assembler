@@ -62,4 +62,21 @@ describe('Ast.Step', () => {
 
         expect(step.toString()).to.equal('When this is a when step\n  | A1 | B1 |\n  | A2 | B2 |');
     });
+
+    it('should have method to clone it', () => {
+        const step = new Step('When ', 'this is a when step');
+        step.argument = new DataTable([
+            new TableRow([
+                new TableCell('A1'),
+                new TableCell('B1')
+            ]),
+            new TableRow([
+                new TableCell('A2'),
+                new TableCell('B2')
+            ])
+        ]);
+        const cloned = step.clone();
+        expect(step).to.not.equal(cloned);
+        expect(step).to.eql(cloned);
+    });
 });

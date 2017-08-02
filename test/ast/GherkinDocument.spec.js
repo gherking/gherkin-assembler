@@ -33,4 +33,11 @@ describe('Ast.GherkinDocument', () => {
         const document = GherkinDocument.parse(featureAst);
         expect(document.toString()).to.equal(featureFile);
     });
+
+    it('should have method to clone it', () => {
+        const document = GherkinDocument.parse(featureAst);
+        const cloned = document.clone();
+        expect(document).to.not.equal(cloned);
+        expect(document).to.eql(cloned);
+    });
 });

@@ -27,4 +27,11 @@ describe('Ast.TableCell', () => {
         const cell = new TableCell('value');
         expect(cell.toString()).to.equal('value');
     });
+
+    it('should have method to clone it', () => {
+        const cell = new TableCell('value');
+        const cloned = cell.clone();
+        expect(cell).to.not.equal(cloned);
+        expect(cell).to.eql(cloned);
+    });
 });

@@ -27,4 +27,11 @@ describe('Ast.DocString', () => {
         const docString = new DocString('Hello\nWorld');
         expect(docString.toString()).to.equal('"""\nHello\nWorld\n"""');
     });
+
+    it('should have method to clone it', () => {
+        const docString = new DocString('Hello\nWorld');
+        const cloned = docString.clone();
+        expect(docString).to.not.equal(cloned);
+        expect(docString).to.eql(cloned);
+    });
 });
