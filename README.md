@@ -48,7 +48,7 @@ By passing an `AssemblerConfig` object to format method (or other Ast type metho
 | `lineBreak` | The line break character(s). | `\n`, i.e. it uses Unix line break, to set Windows style, set `\r\n` |
 | `indentation` | The indentation character(s). | `'  '`, i.e. it uses two space character to add indentation where it's appropriate | 
 
-### AST
+## AST
 
 The API provides types to be able to handle different parts of Gherkin feature files.
 
@@ -59,7 +59,7 @@ console.log(Object.keys(Ast));
 // Background,...,Feature,GherkinDocument,...,Tag
 ```
 
-#### `GherkinDocument`
+### `GherkinDocument`
 
 Model of a complete Gherkin document, i.e. feature file.
 
@@ -71,7 +71,7 @@ Model of a complete Gherkin document, i.e. feature file.
   * `<GherkinDocument>.toString({AssemblerConfig} [options]) : string` - converts the document to string, i.e. formats it.
   * `GherkinDocumnet.parse({Object} object) : GherkinDocument` - parses the given [GherkinDocument object](/test/data/base.ast.json#2) to a `GherkinDocument`.
 
-#### `Feature`
+### `Feature`
 
 Model of a Gherkin feature.
 
@@ -82,7 +82,7 @@ Feature: Hello world
   So that I am smth
 ```
 
-##### Fields
+#### Fields
 
 | Name | Type | Description |
 |:-----|:-----|:------------|
@@ -93,7 +93,7 @@ Feature: Hello world
 | `tags` | `Array<Tag>` | Tags of the feature. |
 | `scenarios` | `Array<Background|Scenario|ScenarioOutline>` | The elements/scenarios of the feature |
 
-##### Methods
+#### Methods
 
 | Method | Description |
 |:-------|:------------|
@@ -102,43 +102,43 @@ Feature: Hello world
 | `Feature.parse({Object} object) : Feature` | Parses the given [Feature object](/test/data/base.ast.json#4) to a `Feature`. |
 
 
-#### `Background`
+### `Background`
 
 _TBD_
 
-#### `Scenario`
+### `Scenario`
 
 _TBD_
 
-#### `ScenarioOutline`
+### `ScenarioOutline`
 
 _TBD_
 
-#### `Examples`
+### `Examples`
 
 _TBD_
 
-#### `Step`
+### `Step`
 
 _TBD_
 
-#### `Tag`
+### `Tag`
 
 _TBD_
 
-#### `DocString`
+### `DocString`
 
 _TBD_
 
-#### `DataTable`
+### `DataTable`
 
 _TBD_
 
-#### `TableRow`
+### `TableRow`
 
 _TBD_
 
-#### `TableCell`
+### `TableCell`
 
 _TBD_
 
