@@ -1,5 +1,7 @@
 # Changelog
 
-## v1.0.0
+## 1.0.0 - 2017-08-04
 
-- [#1](https://github.com/szikszail/gherkin-assembler/issues/1) Add code to format Gherkin AST to feature file content
+### Added
+
+- Add code to format Gherkin AST to feature file content ([#1](https://github.com/szikszail/gherkin-assembler/issues/1))
