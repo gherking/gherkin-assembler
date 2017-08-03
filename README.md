@@ -106,7 +106,7 @@ Feature: Hello world
 Model of a Gherkin Background scenario.
 
 ```gherkin
-Background:
+Background: Some background steps
   Given this is a given step
   And this is a given step too
   When this is a when step
@@ -117,23 +117,107 @@ Background:
 
 #### Fields
 
-_TBD_
+ * `{string} keyword` - The keyword of the background, e.g. `"Background"`.
+ * `{string} name` - The name of the background, e.g. `"Some background steps"`.
+ * `{string} description` - The description of the background.
+ * `{Array<Step>} steps` - The steps of the background.
 
 #### Methods
 
-_TBD_
+ * `new Background(keyword, name, description) : Background` - Creates a new `Background` object, with the given values.
+ * `{Background}.toString({AssemblerConfig}) : string` - Converts the background to string, i.e. formats it.
+ * `{Background}.clone() : Background` - Clones the background.
+ * `Background.parse({Object} object) : Background` - Parses the given [Background object](/test/data/base.ast.json#33) to a `Background`.
 
 ### `Scenario`
 
-_TBD_
+Model of a Gherkin scenario.
+
+```gherkin
+@tag2 @tag3
+Scenario: Name of scenario
+Description of the scenario
+
+  Given this is a given step
+  And this is a given step too
+```
+
+#### Fields
+
+ * `{string} keyword` - The keyword of the scenario, e.g. `"Scenario"`.
+ * `{string} name` - The name of the scenario, e.g. `"Name of scenario"`.
+ * `{string} description` - The description of the scenario, e.g. `"Description of the scenario"`.
+ * `{Array<Step>} steps` - The steps of the scenario.
+ * `{Array<Tag>} tags` - Tags of the scenario.
+
+#### Methods
+
+ * `new Scenario(keyword, name, description) : Scenario` - Creates a new `Scenario` object, with the given values.
+ * `{Scenario}.toString({AssemblerConfig}) : string` - Converts the scenario to string, i.e. formats it.
+ * `{Scenario}.clone() : Scenario` - Clones the scenario.
+ * `Scenario.parse({Object} object) : Scenario` - Parses the given [Scenario object](/test/data/base.ast.json#98) to a `Scenario`.
 
 ### `ScenarioOutline`
 
-_TBD_
+Model of a Gherkin Scenario outline.
 
+```gherkin
+@tag2 @tag(3)
+Scenario Outline: Name of outline <key>
+  Given this is a given step
+  And this is a given step too
+  When this is a when step <key>
+  And this is a when step too
+  Then it should be a then step
+  And it should be a then step too
+
+@tagE1
+  Examples: First examples
+    | key    |
+    | value1 |
+```
+
+#### Fields
+
+ * `{string} keyword` - The keyword of the scenario outline, e.g. `"Scenario Outline"`.
+ * `{string} name` - The name of the scenario outline, e.g. `"Name of outline <key>"`.
+ * `{string} description` - The description of the scenario outline.
+ * `{Array<Step>} steps` - The steps of the scenario outline.
+ * `{Array<Tag>} tags` - Tags of the scenario outline.
+ * `{Array<Examples>} examples` - Examples of the scenario outline.
+
+#### Methods
+
+ * `new ScenarioOutline(keyword, name, description) : ScenarioOutline` - Creates a new `ScenarioOutline` object, with the given values.
+ * `{ScenarioOutline}.toString({AssemblerConfig}) : string` - Converts the scenario outline to string, i.e. formats it.
+ * `{ScenarioOutline}.clone() : ScenarioOutline` - Clones the scenario outline.
+ * `ScenarioOutline.parse({Object} object) : ScenarioOutline` - Parses the given [ScenarioOutline object](/test/data/base.ast.json#343) to a `ScenarioOutline`.
+ 
 ### `Examples`
 
-_TBD_
+Model of a Gherkin Scenario outline Examples table.
+
+```gherkin
+@tagE1
+  Examples: First examples
+    | key    |
+    | value1 |
+```
+
+#### Fields
+
+ * `{string} keyword` - The keyword of the examples table, e.g. `"Examples"`.
+ * `{string} name` - The name of the examples table, e.g. `"First examples"`.
+ * `{Array<Tag>} tags` - Tags of the examples table.
+ * `{TableRow} header` - The header row of the examples table, with column name(s).
+ * `{Array<TableRow>} body` - The data rows of the examples table.
+
+#### Methods
+
+ * `new Examples(keyword, name, description) : Examples` - Creates a new `Examples` object, with the given values.
+ * `{Examples}.toString({AssemblerConfig}) : string` - Converts the examples table to string, i.e. formats it.
+ * `{Examples}.clone() : Examples` - Clones the examples table.
+ * `Examples.parse({Object} object) : Examples` - Parses the given [Examples object](/test/data/base.ast.json#426) to a `Examples`.
 
 ### `Step`
 
