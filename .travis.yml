@@ -8,11 +8,3 @@ script:
 - npm run-script travis
 notifications:
   email: false
-deploy:
-  provider: npm
-  email: sziklaszlo@gmail.com
-  on:
-    branch: master
-    tags: true
-  api_key:
-    secure: iNbA9LhE5FzqAdPqX7s994QId5MwhzDN3odcfPzIcEQzm+ZvoaqYrC1VA7kvhJE1WWta4JORbHKscrPOCe65/ArL2Zcc0HYmZxxoXLEXz5fD3uph8eRjvN5OmFRDeLmLZJmptWc8P31UzA2MkwD1X7t9WFoY2W1YCc/mW+TOwgGlnm8yyST2nhdch+x7i3BZdOd5BaZYd5/e622uVQ8JZLSWE25P3sZNDIR0zebLGPXHeAqWevbUtLhE5OdcPqCB/RckMioxuYs+EmunrXJYQtTdz+WM0JOB62AOUJyXtVeNGCNeoxep4G051t9QV1DeAH9RnbdhFMHCl8IDmMat/Cp9bira0Lt4h1X3GYeH6ZCj7WXSvdjfBusw79EexOZGg57dSzkHE9kkBrlREErVULhur+gu7QUOpGpeBk6ubCqUbdFr+K6gw2If3fJfhKbHlgikWCW1ZLRbTwEaEQ6RBP+HROftJFLewBovnZ3dK+sBKHyYkQnx9AlhaXO/YC1yk5Y8JqmzvK84XDVbTmMHBwh7eSVXETi3LKUPHhCyw1kQa69sxKjSOUXsiWbqtlJ0M6hxD0RIwYE5KCwYmGqJES/qmRIiaUH7u3vF/neYe3iwQlBGOLEqrD8IS+yja894XBeSHEOItKY6txVNCNvKv4vrQJV2/rUkcj45C3uK528=
