@@ -217,31 +217,139 @@ Model of a Gherkin Scenario outline Examples table.
  * `new Examples(keyword, name, description) : Examples` - Creates a new `Examples` object, with the given values.
  * `{Examples}.toString({AssemblerConfig}) : string` - Converts the examples table to string, i.e. formats it.
  * `{Examples}.clone() : Examples` - Clones the examples table.
- * `Examples.parse({Object} object) : Examples` - Parses the given [Examples object](/test/data/base.ast.json#426) to a `Examples`.
+ * `Examples.parse({Object} object) : Examples` - Parses the given [Examples object](/test/data/base.ast.json#426) to an `Examples`.
 
 ### `Step`
 
-_TBD_
+Model of a Gherkin step.
+
+```gherkin
+Given this is a given step
+And this is a given step too
+```
+
+#### Fields
+
+ * `{string} keyword` - The keyword of the step, e.g. `"Given"`.
+ * `{string} text` - The text of the step, e.g. `"this is a given step"`.
+ * `{DocString|DataTable} argument` - The argument of the step if there is any. It could be a `DocString` or a `DataTable`.
+
+#### Methods
+
+ * `new Step(keyword, text) : Step` - Creates a new `Step` object, with the given values.
+ * `{Step}.toString({AssemblerConfig}) : string` - Converts the step to string, i.e. formats it.
+ * `{Step}.clone() : Step` - Clones the step.
+ * `Step.parse({Object} object) : Step` - Parses the given [Step object](/test/data/base.ast.json#43) to a `Step`.
 
 ### `Tag`
 
-_TBD_
+Model of a Gherkin tag (annotation).
+
+```gherkin
+@tag(1)
+```
+
+#### Fields
+
+ * `{string} value` - The tag itself, e.g. `"@tag(1)"`.
+
+#### Methods
+
+ * `new Tag(value) : Tag` - Creates a new `Tag` object, with the given values.
+ * `{Tag}.toString() : string` - Converts the tag to string, i.e. formats it.
+ * `{Tag}.clone() : Tag` - Clones the tag.
+ * `Tag.parse({Object} object) : Tag` - Parses the given [Tag object](/test/data/base.ast.json#7) to a `Tag`.
 
 ### `DocString`
 
-_TBD_
+Model of a Gherkin DocString step argument.
+
+```gherkin
+And this is a when step with doc string
+  """
+  Hello world
+  Hello World
+  hello World
+  hello world
+  """
+```
+
+#### Fields
+
+ * `{string} content` - The content of the docString, e.g. `"Hello world\nHello World..."`.
+
+#### Methods
+
+ * `new DocString(value) : DocString` - Creates a new `DocString` object, with the given values.
+ * `{DocString}.toString({AssemblerConfig}) : string` - Converts the docString to string, i.e. formats it.
+ * `{DocString}.clone() : DocString` - Clones the docString.
+ * `DocString.parse({Object} object) : DocString` - Parses the given [DocString object](/test/data/base.ast.json#314) to a `DocString`.
 
 ### `DataTable`
 
-_TBD_
+Model of a Gherkin DocString step argument.
+
+```gherkin
+And this is a when step with data table too
+  | col1 | col2 |
+  | val1 | val2 |
+  | val3 | val4 |
+```
+
+#### Fields
+
+ * `{Array<TableRow>} rows` - The rows of the data table.
+
+#### Methods
+
+ * `new DataTable(rows) : DataTable` - Creates a new `DataTable` object, with the given values.
+ * `{DataTable}.toString({AssemblerConfig}) : string` - Converts the data table to string, i.e. formats it.
+ * `{DataTable}.clone() : DataTable` - Clones the data table.
+ * `DataTable.parse({Object} object) : DataTable` - Parses the given [DataTable object](/test/data/base.ast.json#221) to a `DataTable`.
 
 ### `TableRow`
 
-_TBD_
+Model of a row in Gherkin DataTable or Examples.
+
+```gherkin
+And this is a when step with data table too
+  | col1 | col2 |
+  | val1 | val2 |
+  | val3 | val4 |
+```
+
+#### Fields
+
+ * `{Array<TableCell>} cells` - The cells of the table row.
+
+#### Methods
+
+ * `new TableRow(cells) : TableRow` - Creates a new `TableRow` object, with the given values.
+ * `{TableRow}.toString({AssemblerConfig}) : string` - Converts the table row to string, i.e. formats it.
+ * `{TableRow}.clone() : TableRow` - Clones the table row.
+ * `TableRow.parse({Object} object) : TableRow` - Parses the given [TableRow object](/test/data/base.ast.json#228) to a `TableRow`.
 
 ### `TableCell`
 
-_TBD_
+Model of a cell in a Gherkin TableRow.
+
+```gherkin
+And this is a when step with data table too
+  | col1 | col2 |
+  | val1 | val2 |
+  | val3 | val4 |
+```
+
+#### Fields
+
+ * `{string} value` - The value of the cell, e.g. `"col1"`.
+
+#### Methods
+
+ * `new TableCell(value) : TableCell` - Creates a new `TableCell` object, with the given values.
+ * `{TableCell}.toString() : string` - Converts the table cell to string, i.e. formats it.
+ * `{TableCell}.clone() : TableCell` - Clones the table cell.
+ * `TableCell.parse({Object} object) : TableCell` - Parses the given [TableCell object](/test/data/base.ast.json#235) to a `TableCell`.
 
 ## Parsing feature files to Gherkin object
 
