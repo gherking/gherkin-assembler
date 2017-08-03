@@ -103,6 +103,24 @@ Feature: Hello world
 
 ### `Background`
 
+Model of a Gherkin Background scenario.
+
+```gherkin
+Background:
+  Given this is a given step
+  And this is a given step too
+  When this is a when step
+  And this is a when step too
+  Then it should be a then step
+  And it should be a then step too
+```
+
+#### Fields
+
+_TBD_
+
+#### Methods
+
 _TBD_
 
 ### `Scenario`
