@@ -1,0 +1,45 @@
+{
+  "name": "gherkin-assembler",
+  "version": "1.0.0",
+  "description": "Assembling Gherkin ASTs to feature file string",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha ./test/*.spec.js ./test/ast/*.spec.js",
+    "coverage": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha --root ./lib -- ./test/*.spec.js ./test/ast/*.spec.js",
+    "travis": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha --root ./lib --report lcovonly -- ./test/*.spec.js ./test/ast/*.spec.js -R spec && cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  },
+  "preferGlobal": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szikszail/gherkin-assembler.git"
+  },
+  "keywords": [
+    "gherkin",
+    "cucumber",
+    "feature file"
+  ],
+  "author": "Laszlo Szikszai <sziklaszlo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/szikszail/gherkin-assembler/issues"
+  },
+  "engines": {
+    "node": ">=4.9.2",
+    "npm": ">=3.0.0"
+  },
+  "homepage": "https://github.com/szikszail/gherkin-assembler#readme",
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "coveralls": "^2.13.1",
+    "deep-copy": "^1.2.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2"
+  },
+  "dependencies": {
+    "cli-table": "^0.3.1",
+    "colors": "^1.1.2",
+    "gherkin": "^4.1.3",
+    "proxyquire": "^1.8.0",
+    "split-lines": "^1.1.0"
+  }
+}
