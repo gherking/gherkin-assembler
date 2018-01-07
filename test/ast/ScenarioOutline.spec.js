@@ -2,6 +2,7 @@
 
 const {resolve} = require('path');
 const {readFileSync} = require('fs');
+const Element = require(resolve('lib/ast/Element.js'));
 const ScenarioOutline = require(resolve('lib/ast/ScenarioOutline.js'));
 const Step = require(resolve('lib/ast/Step.js'));
 const Tag = require(resolve('lib/ast/Tag.js'));
