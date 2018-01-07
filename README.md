@@ -55,7 +55,7 @@ The API provides types to be able to handle different parts of Gherkin feature f
 
 ```javascript
 'use strict';
-const {AST} = require('gherkin-assemble');
+const {AST} = require('gherkin-assembler');
 console.log(Object.keys(AST));
 // Background,...,Feature,GherkinDocument,...,Tag
 ```
