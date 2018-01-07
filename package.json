@@ -24,7 +24,7 @@
     "url": "https://github.com/szikszail/gherkin-assembler/issues"
   },
   "engines": {
-    "node": ">=4.9.2",
+    "node": ">=6.0.0",
     "npm": ">=3.0.0"
   },
   "homepage": "https://github.com/szikszail/gherkin-assembler#readme",

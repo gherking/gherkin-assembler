@@ -1,14 +1,14 @@
 'use strict';
 
-const path = require('path');
-const fs = require('fs');
-const ScenarioOutline = require(path.resolve('lib/ast/ScenarioOutline.js'));
-const Step = require(path.resolve('lib/ast/Step.js'));
-const Tag = require(path.resolve('lib/ast/Tag.js'));
-const Examples = require(path.resolve('lib/ast/Examples.js'));
+const {resolve} = require('path');
+const {readFileSync} = require('fs');
+const ScenarioOutline = require(resolve('lib/ast/ScenarioOutline.js'));
+const Step = require(resolve('lib/ast/Step.js'));
+const Tag = require(resolve('lib/ast/Tag.js'));
+const Examples = require(resolve('lib/ast/Examples.js'));
 
 const scenarioAst = require('../data/scenarioOutline.json');
-const scenarioFeature = fs.readFileSync(path.resolve('test/data/scenarioOutline.txt'), 'utf8');
+const scenarioFeature = readFileSync(resolve('test/data/scenarioOutline.txt'), 'utf8');
 
 const expect = require('chai').expect;
 
@@ -22,6 +22,11 @@ describe('Ast.ScenarioOutline', () => {
         expect(scenario.tags).to.eql([]);
         expect(scenario.steps).to.eql([]);
         expect(scenario.examples).to.eql([]);
+    });
+    
+    it('should extend common Element class', () => {
+        const scenario = new ScenarioOutline('Scenario Outline', 'this is a   scenario', 'this  is a good scenario\n  a');
+        expect(scenario).to.be.instanceOf(Element);
     });
     
     it('should not parse regular objects', () => {

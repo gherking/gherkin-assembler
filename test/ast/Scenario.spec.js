@@ -1,13 +1,14 @@
 'use strict';
 
-const path = require('path');
-const fs = require('fs');
-const Scenario = require(path.resolve('lib/ast/Scenario.js'));
-const Step = require(path.resolve('lib/ast/Step.js'));
-const Tag = require(path.resolve('lib/ast/Tag.js'));
+const {resolve} = require('path');
+const {readFileSync} = require('fs');
+const Element = require(resolve('lib/ast/Element.js'));
+const Scenario = require(resolve('lib/ast/Scenario.js'));
+const Step = require(resolve('lib/ast/Step.js'));
+const Tag = require(resolve('lib/ast/Tag.js'));
 
 const scenarioAst = require('../data/scenario.json');
-const scenarioFeature = fs.readFileSync(path.resolve('test/data/scenario.txt'), 'utf8');
+const scenarioFeature = readFileSync(resolve('test/data/scenario.txt'), 'utf8');
 
 const expect = require('chai').expect;
 
@@ -20,6 +21,11 @@ describe('Ast.Scenario', () => {
         expect(scenario.description).to.equal('this is a good scenario\na');
         expect(scenario.tags).to.eql([]);
         expect(scenario.steps).to.eql([]);
+    });
+    
+    it('should extend common Element class', () => {
+        const scenario = new Scenario('Scenario', 'this is a   scenario', 'this  is a good scenario\n  a');
+        expect(scenario).to.be.instanceOf(Element);
     });
     
     it('should not parse regular objects', () => {

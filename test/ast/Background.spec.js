@@ -1,11 +1,12 @@
 'use strict';
 
-const path = require('path');
-const fs = require('fs');
-const Background = require(path.resolve('lib/ast/Background.js'));
+const {resolve} = require('path');
+const {readFileSync} = require('fs');
+const Background = require(resolve('lib/ast/Background.js'));
+const Element = require(resolve('lib/ast/Element.js'));
 
 const backgroundAst = require('../data/background.json');
-const backgroundFeature = fs.readFileSync(path.resolve('test/data/background.txt'), 'utf8');
+const backgroundFeature = readFileSync(resolve('test/data/background.txt'), 'utf8');
 
 const expect = require('chai').expect;
 
@@ -17,6 +18,11 @@ describe('Ast.Background', () => {
         expect(background.name).to.equal('this is a background');
         expect(background.description).to.equal('this is a good background\na');
         expect(background.steps).to.eql([]);
+    });
+    
+    it('should extend common Element class', () => {
+        const background = new Background('Background', 'this is a  background', 'this  is a good background\n  a');
+        expect(background).to.be.instanceOf(Element);
     });
     
     it('should not parse regular objects', () => {
