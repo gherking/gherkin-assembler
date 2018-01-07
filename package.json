@@ -1,6 +1,6 @@
 {
   "name": "gherkin-assembler",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Assembling Gherkin ASTs to feature file string",
   "main": "lib/index.js",
   "scripts": {

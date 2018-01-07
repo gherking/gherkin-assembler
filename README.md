@@ -44,6 +44,7 @@ By passing an `AssemblerConfig` object to format method (or other Ast type metho
 | Option | Description | Default |
 |:-------|:------------|:--------|
 | `oneTagPerLine` | Should tags rendered separately, one by line? | `false`, i.e. all tag of a scenario, feature, etc will be rendered in the same line |
+| `separateStepGroups` | Should step groups (when-then) be separated? | `false` |
 | `compact` | Should empty lines be skipped, removed from the result? | `false`, i.e. there will be empty lines in appropriate places |
 | `lineBreak` | The line break character(s). | `\n`, i.e. it uses Unix line break, to set Windows style, set `\r\n` |
 | `indentation` | The indentation character(s). | `'  '`, i.e. it uses two space character to add indentation where it's appropriate | 
