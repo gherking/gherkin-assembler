@@ -31,7 +31,7 @@ describe('Ast.GherkinDocument', () => {
 
     it('should have proper string representation', () => {
         const document = GherkinDocument.parse(featureAst);
-        expect(document.toString()).to.equal(featureFile);
+        expect(document.toString().split(/\r?\n/g)).to.eql(featureFile.split(/\r?\n/g));
     });
 
     it('should have method to clone it', () => {

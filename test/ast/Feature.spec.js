@@ -55,7 +55,7 @@ describe('Ast.Feature', () => {
 
     it('should have proper string representation', () => {
         const feature = Feature.parse(featureAst);
-        expect(feature.toString()).to.equal(featureFile);
+        expect(feature.toString().split(/\r?\n/g)).to.eql(featureFile.split(/\r?\n/g));
     });
 
     it('should have method to clone it', () => {

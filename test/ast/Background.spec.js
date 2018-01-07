@@ -39,7 +39,7 @@ describe('Ast.Background', () => {
 
     it('should have proper string representation', () => {
         const background = Background.parse(backgroundAst);
-        expect(background.toString()).to.equal(backgroundFeature);
+        expect(background.toString().split(/\r?\n/g)).to.eql(backgroundFeature.split(/\r?\n/g));
     });
 
     it('should have method to clone it', () => {

@@ -59,7 +59,7 @@ describe('Ast.ScenarioOutline', () => {
 
     it('should have proper string representation', () => {
         const scenario = ScenarioOutline.parse(scenarioAst);
-        expect(scenario.toString()).to.equal(scenarioFeature);
+        expect(scenario.toString().split(/\r?\n/g)).to.eql(scenarioFeature.split(/\r?\n/g));
     });
 
     it('should have method to clone it', () => {
