@@ -19,19 +19,22 @@ describe('API', () => {
         });
 
         it('should format simple document', () => {
-            expect(api.format(featureAst)).to.equal(featureFile);
+            expect(api.format(featureAst).split(/\r?\n/g)).to.eql(featureFile.split(/\r?\n/g));
         });
 
         it('should format array of documents', () => {
-            expect(api.format([featureAst, featureAst])).to.eql([featureFile, featureFile]);
+            const result = api.format([featureAst, featureAst]);
+            result.forEach(res => {
+                expect(res.split(/\r?\n/g)).to.eql(featureFile.split(/\r?\n/g));
+            });
         });
 
         it('should put each tag in new line, if set', () => {
-            expect(api.format(featureAst, {oneTagPerLine: true})).to.equal(multiLineFeatureFile);
+            expect(api.format(featureAst, {oneTagPerLine: true}).split(/\r?\n/g)).to.eql(multiLineFeatureFile.split(/\r?\n/g));
         });
 
         it('should remove empty lines, if set', () => {
-            expect(api.format(featureAst, {compact: true})).to.equal(compactFeatureFile);
+            expect(api.format(featureAst, {compact: true}).split(/\r?\n/g)).to.eql(compactFeatureFile.split(/\r?\n/g));
         });
     });
 

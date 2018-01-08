@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0 - 2018-01-07
+
+### Added
+
+- Add option to make scenarios more readable ([#3](https://github.com/szikszail/gherkin-assembler/issues/3))
+
 ## 1.0.1 - 2017-08-08
 
 ### Fixes

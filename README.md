@@ -44,6 +44,7 @@ By passing an `AssemblerConfig` object to format method (or other Ast type metho
 | Option | Description | Default |
 |:-------|:------------|:--------|
 | `oneTagPerLine` | Should tags rendered separately, one by line? | `false`, i.e. all tag of a scenario, feature, etc will be rendered in the same line |
+| `separateStepGroups` | Should step groups (when-then) be separated? | `false` |
 | `compact` | Should empty lines be skipped, removed from the result? | `false`, i.e. there will be empty lines in appropriate places |
 | `lineBreak` | The line break character(s). | `\n`, i.e. it uses Unix line break, to set Windows style, set `\r\n` |
 | `indentation` | The indentation character(s). | `'  '`, i.e. it uses two space character to add indentation where it's appropriate | 
@@ -54,7 +55,7 @@ The API provides types to be able to handle different parts of Gherkin feature f
 
 ```javascript
 'use strict';
-const {AST} = require('gherkin-assemble');
+const {AST} = require('gherkin-assembler');
 console.log(Object.keys(AST));
 // Background,...,Feature,GherkinDocument,...,Tag
 ```
@@ -125,6 +126,8 @@ Background: Some background steps
 #### Methods
 
  * `new Background(keyword, name, description) : Background` - Creates a new `Background` object, with the given values.
+ * `{Background}.useNormalStepKeywords()` - Sets the keywords of all step to normal keywords, i.e. `Given`, `When`, `Then`.
+ * `{Background}.useReadableStepKeywords()` - Sets the keywords of steps to more readable ones, if applicable, i.e. replaces multiple normal keywords with `And` keyword.
  * `{Background}.toString({AssemblerConfig}) : string` - Converts the background to string, i.e. formats it.
  * `{Background}.clone() : Background` - Clones the background.
  * `Background.parse({Object} object) : Background` - Parses the given [Background object](/test/data/base.ast.json#33) to a `Background`.
@@ -153,6 +156,8 @@ Description of the scenario
 #### Methods
 
  * `new Scenario(keyword, name, description) : Scenario` - Creates a new `Scenario` object, with the given values.
+ * `{Scenario}.useNormalStepKeywords()` - Sets the keywords of all step to normal keywords, i.e. `Given`, `When`, `Then`.
+ * `{Scenario}.useReadableStepKeywords()` - Sets the keywords of steps to more readable ones, if applicable, i.e. replaces multiple normal keywords with `And` keyword.
  * `{Scenario}.toString({AssemblerConfig}) : string` - Converts the scenario to string, i.e. formats it.
  * `{Scenario}.clone() : Scenario` - Clones the scenario.
  * `Scenario.parse({Object} object) : Scenario` - Parses the given [Scenario object](/test/data/base.ast.json#98) to a `Scenario`.
@@ -189,6 +194,8 @@ Scenario Outline: Name of outline <key>
 #### Methods
 
  * `new ScenarioOutline(keyword, name, description) : ScenarioOutline` - Creates a new `ScenarioOutline` object, with the given values.
+ * `{ScenarioOutline}.useNormalStepKeywords()` - Sets the keywords of all step to normal keywords, i.e. `Given`, `When`, `Then`.
+ * `{ScenarioOutline}.useReadableStepKeywords()` - Sets the keywords of steps to more readable ones, if applicable, i.e. replaces multiple normal keywords with `And` keyword.
  * `{ScenarioOutline}.toString({AssemblerConfig}) : string` - Converts the scenario outline to string, i.e. formats it.
  * `{ScenarioOutline}.clone() : ScenarioOutline` - Clones the scenario outline.
  * `ScenarioOutline.parse({Object} object) : ScenarioOutline` - Parses the given [ScenarioOutline object](/test/data/base.ast.json#343) to a `ScenarioOutline`.
