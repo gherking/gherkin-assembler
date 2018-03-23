@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.1 - 2018-03-23
+
+### Fixed
+
+- Fixed README
+
 ## 2.0.0 - 2018-03-23
 
 ### Changed
