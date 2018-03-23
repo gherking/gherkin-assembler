@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0 - 2018-03-23
+
+### Changed
+
+- AST moved to [gherkin-ast|http://github.com/szikszail/gherkin-ast]
+
 ## 1.1.0 - 2018-01-07
 
 ### Added

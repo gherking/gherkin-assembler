@@ -1,6 +1,6 @@
 {
   "name": "gherkin-assembler",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Assembling Gherkin ASTs to feature file string",
   "main": "lib/index.js",
   "scripts": {
@@ -36,10 +36,6 @@
     "mocha": "^4.1.0"
   },
   "dependencies": {
-    "cli-table": "^0.3.1",
-    "colors": "^1.1.2",
-    "gherkin": "^5.0.1",
-    "proxyquire": "^1.8.0",
-    "split-lines": "^1.1.0"
+    "gherkin-ast": "^1.0.1"
   }
 }
